@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+.layout-wrapper {
+	.sidebar-content-wrapper {
+		padding-top: 64px;
+		display: flex;
+		align-items: flex-start;
+
+		.sidebar {
+			width: 256px;
+		}
+
+		.content {
+			padding: 16px;
+			background-color: $color-white;
+			width: calc(100vw - 256px);
+			height: calc(100vh - 64px);
+		}
+	}
+}
