@@ -1,10 +1,11 @@
 import { Button } from 'antd';
+import Layout from './components/layout';
 
 function App() {
 	return (
-		<div className="App">
-			hi ther <Button type="primary">Primary Button</Button>
-		</div>
+		<>
+			<Layout />
+		</>
 	);
 }
 
