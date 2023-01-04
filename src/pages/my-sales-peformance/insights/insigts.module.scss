@@ -1,0 +1,29 @@
+.wrapper {
+	.tabs {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 18px;
+		.tab {
+			margin-bottom: 0;
+			font-weight: 600;
+			font-size: 15px;
+			.tab-name {
+				font-weight: 400;
+				font-size: 14px;
+			}
+		}
+	}
+	.charts-wrapper {
+		margin-bottom: 30px;
+		.card-wrapper {
+			border-radius: 5px;
+			padding: 8px;
+			width: 400px;
+			height: 400px;
+			box-shadow: 0px 0px 3.6px rgba(0, 0, 0, 0.015),
+				0px 0px 10px rgba(0, 0, 0, 0.019), 0px 0px 24.1px rgba(0, 0, 0, 0.024),
+				0px 0px 80px rgba(0, 0, 0, 0.03);
+		}
+	}
+}

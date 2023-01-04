@@ -1,5 +1,7 @@
-import { Table } from 'antd';
-import React from 'react';
+import { LineChartOutlined } from '@ant-design/icons';
+import { Col, Row, Table } from 'antd';
+
+import styles from './insigts.module.scss';
 
 const Insights = () => {
 	const dataSource = [
@@ -127,7 +129,23 @@ const Insights = () => {
 		},
 	];
 	return (
-		<div>
+		<div className={styles['wrapper']}>
+			<div className={styles['tabs']}>
+				<LineChartOutlined />
+				<p className={styles['tab']}>
+					My Sales Performance:
+					<span className={styles['tab-name']}>&nbsp;Insights</span>
+				</p>
+			</div>
+			<Row className={styles['charts-wrapper']}>
+				<Col span={12}>
+					<div className={styles['card-wrapper']}></div>
+				</Col>
+				<Col span={12}>
+					<div className={styles['card-wrapper']}></div>
+				</Col>
+			</Row>
+
 			<Table dataSource={dataSource} columns={columns} />
 		</div>
 	);
