@@ -24,14 +24,17 @@ const Header = () => {
 				<p className={styles['brand-name']}>Welcome to Eden</p>
 			</div>
 			<div className={styles['users-wrapper']}>
-				<SettingOutlined />
-				<QuestionCircleOutlined />
+				<SettingOutlined className={styles['nav-options']} />
+				<QuestionCircleOutlined className={styles['nav-options']} />
 				<Dropdown
 					menu={{
 						items,
 					}}
 				>
-					<Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
+					<Avatar
+						className={styles['nav-options']}
+						style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
+					>
 						U
 					</Avatar>
 				</Dropdown>
