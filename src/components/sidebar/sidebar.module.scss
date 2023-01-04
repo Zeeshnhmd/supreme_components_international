@@ -6,6 +6,11 @@
 		width: 256px;
 		height: calc(100vh - 64px);
 		overflow: auto;
+		position: fixed;
+		left: 0;
+		top: 64px;
+		bottom: 0;
+
 		&::-webkit-scrollbar {
 			display: none;
 		}

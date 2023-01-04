@@ -24,7 +24,9 @@ const SideBar = () => {
 	}
 
 	const items = [
-		getItem('Home', '/', <HomeOutlined />),
+		getItem('Home', '/', <HomeOutlined />, [
+			getItem('My Journey', '/my-journey'),
+		]),
 		getItem(
 			'My Sales Performance',
 			'/sales-performance',
@@ -71,6 +73,7 @@ const SideBar = () => {
 				className={styles['sidebar']}
 				defaultSelectedKeys={['/home']}
 				defaultOpenKeys={[
+					'/',
 					'/sales-performance',
 					'/email-engagement',
 					'/rfq-opportunities',
