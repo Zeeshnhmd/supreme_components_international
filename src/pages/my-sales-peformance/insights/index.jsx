@@ -1,9 +1,87 @@
 import { LineChartOutlined } from '@ant-design/icons';
-import { Col, Row, Table } from 'antd';
+import { Col, Divider, Row, Table } from 'antd';
+import { useState } from 'react';
+import ReactApexChart from 'react-apexcharts';
 
 import styles from './insigts.module.scss';
 
 const Insights = () => {
+	const [options, setOptions] = useState({
+		series: [44, 55, 13, 43],
+		options: {
+			chart: {
+				width: 380,
+				type: 'pie',
+			},
+			labels: ['1st Qtr', '2nd Qtr', '3rd Qtr', '4th Qtr'],
+			legend: {
+				position: 'bottom',
+				fontSize: '12px',
+				fontFamily: 'Helvetica, Arial',
+				fontWeight: 600,
+			},
+		},
+	});
+
+	const [barOptions, setBarOptions] = useState({
+		series: [
+			{
+				name: 'Components',
+				data: [44, 55, 57, 56],
+			},
+			{
+				name: 'LED',
+				data: [76, 85, 101, 98],
+			},
+			{
+				name: 'IOT',
+				data: [35, 41, 36, 26],
+			},
+		],
+
+		options: {
+			chart: {
+				type: 'bar',
+				height: 350,
+				toolbar: { show: false },
+			},
+			plotOptions: {
+				bar: {
+					horizontal: false,
+					columnWidth: '55%',
+					endingShape: 'rounded',
+				},
+			},
+			dataLabels: {
+				enabled: false,
+			},
+			stroke: {
+				show: true,
+				width: 2,
+				colors: ['transparent'],
+			},
+			xaxis: {
+				categories: ['Asia', 'Europe', 'North America', 'ANZ'],
+			},
+			yaxis: {
+				title: {
+					text: '$ (thousands)',
+				},
+			},
+			fill: {
+				opacity: 1,
+			},
+
+			tooltip: {
+				y: {
+					formatter: function (val) {
+						return '$ ' + val + ' thousands';
+					},
+				},
+			},
+		},
+	});
+
 	const dataSource = [
 		{
 			key: '1',
@@ -137,15 +215,32 @@ const Insights = () => {
 					<span className={styles['tab-name']}>&nbsp;Insights</span>
 				</p>
 			</div>
-			<Row className={styles['charts-wrapper']}>
+			<Divider />
+			<Row className={styles['charts-wrapper']} gutter={32}>
 				<Col span={12}>
-					<div className={styles['card-wrapper']}></div>
+					<div className={styles['card-wrapper']}>
+						<p className={styles['card-title']}>Sales by Quater</p>
+						<ReactApexChart
+							options={options.options}
+							series={options.series}
+							type="pie"
+						/>
+					</div>
 				</Col>
 				<Col span={12}>
-					<div className={styles['card-wrapper']}></div>
+					<div className={styles['card-wrapper']}>
+						<p className={styles['card-title']}># of Orders (Breakdown)</p>
+						<ReactApexChart
+							options={barOptions.options}
+							series={barOptions.series}
+							type="bar"
+							height="100%"
+						/>
+					</div>
 				</Col>
 			</Row>
-
+			<Divider />
+			<p className={styles['card-title']}>Top Accounts</p>
 			<Table dataSource={dataSource} columns={columns} />
 		</div>
 	);
