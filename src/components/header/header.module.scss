@@ -50,6 +50,10 @@
 		justify-content: flex-end;
 		align-items: center;
 		gap: 24px;
+
+		@media (max-width: 1024px) {
+			gap: 8px;
+		}
 		@media (max-width: 768px) {
 			width: 100%;
 		}
@@ -98,11 +102,6 @@
 							background-color: transparent;
 							color: $color-white;
 							border: 1px solid $color-white;
-
-							// &:hover {
-							// 	border: none;
-							// 	color: $color-white;
-							// }
 						}
 						.ant-select-arrow {
 							color: $color-white;

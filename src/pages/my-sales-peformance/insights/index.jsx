@@ -11,22 +11,27 @@ const Insights = () => {
 		options: {
 			chart: {
 				width: 380,
-				type: 'pie',
-			},
-			labels: ['1st Qtr', '2nd Qtr', '3rd Qtr', '4th Qtr'],
-			responsive: [
-				{
-					breakpoint: 400,
-					options: {
-						chart: {
-							width: 200,
-						},
-						legend: {
-							position: 'bottom',
-						},
+				events: {
+					mounted: (chart) => {
+						chart.windowResizeHandler();
 					},
 				},
-			],
+			},
+			labels: ['1st Qtr', '2nd Qtr', '3rd Qtr', '4th Qtr'],
+			colors: ['#4472C4', '#ED7D31', '#A5A5A5', '#FFC000'],
+			// responsive: [
+			// 	{
+			// 		breakpoint: 400,
+			// 		options: {
+			// 			chart: {
+			// 				width: 200,
+			// 			},
+			// 			legend: {
+			// 				position: 'bottom',
+			// 			},
+			// 		},
+			// 	},
+			// ],
 			legend: {
 				position: 'bottom',
 				fontSize: '12px',
@@ -42,14 +47,17 @@ const Insights = () => {
 			{
 				name: 'Components',
 				data: [44, 55, 57, 56],
+				color: '#4472C4',
 			},
 			{
 				name: 'LED',
 				data: [76, 85, 101, 98],
+				color: '#ED7D31',
 			},
 			{
 				name: 'IOT',
 				data: [35, 41, 36, 26],
+				color: '#A5A5A5',
 			},
 		],
 
@@ -59,6 +67,11 @@ const Insights = () => {
 				height: 380,
 				type: 'bar',
 				toolbar: { show: false },
+				events: {
+					mounted: (chart) => {
+						chart.windowResizeHandler();
+					},
+				},
 			},
 			plotOptions: {
 				bar: {
@@ -95,6 +108,26 @@ const Insights = () => {
 				},
 			},
 		},
+		// reponsive: [
+		// 	{
+		// 		breakpoint: 1024,
+		// 		options: {
+		// 			chart: {
+		// 				width: 600,
+		// 				height: '100%',
+		// 			},
+		// 		},
+		// 	},
+		// 	{
+		// 		breakpoint: 769,
+		// 		options: {
+		// 			chart: {
+		// 				width: '100%',
+		// 				height: '600',
+		// 			},
+		// 		},
+		// 	},
+		// ],
 	});
 
 	console.log(setBarOptions);
@@ -241,6 +274,8 @@ const Insights = () => {
 						options={options.options}
 						series={options.series}
 						type="pie"
+						width="100%"
+						height={500}
 					/>
 				</div>
 
@@ -250,6 +285,8 @@ const Insights = () => {
 						options={barOptions.options}
 						series={barOptions.series}
 						type="bar"
+						width="100%"
+						height={450}
 					/>
 				</div>
 			</div>
