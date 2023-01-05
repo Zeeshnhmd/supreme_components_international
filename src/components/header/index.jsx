@@ -3,7 +3,7 @@ import {
 	QuestionCircleOutlined,
 	SettingOutlined,
 } from '@ant-design/icons';
-import { Avatar, Dropdown, Tag } from 'antd';
+import { Avatar, Dropdown, Select, Tag } from 'antd';
 
 import styles from './header.module.scss';
 
@@ -18,6 +18,10 @@ const Header = ({ userTypes, userType, setUserType }) => {
 			key: '1',
 		},
 	];
+
+	const handleChange = (value) => {
+		setUserType(value);
+	};
 
 	return (
 		<div
@@ -40,7 +44,7 @@ const Header = ({ userTypes, userType, setUserType }) => {
 				<div className={styles['view-type']}>
 					<EyeOutlined /> <p className={styles['user-type']}>{userType}</p>
 				</div>
-				<div>
+				<div className={styles['tages-wrapper']}>
 					{userTypes.map((el) => (
 						<Tag
 							className={styles['tags']}
@@ -50,6 +54,18 @@ const Header = ({ userTypes, userType, setUserType }) => {
 							<p className={styles['tag-name']}> {el?.type}</p>
 						</Tag>
 					))}
+				</div>
+				<div className={styles['user-dropdown']}>
+					<Select
+						className={styles['select-wrapper']}
+						defaultValue="SR"
+						defaultActiveFirstOption
+						onChange={handleChange}
+						options={userTypes.map((el) => ({
+							label: el?.type,
+							value: el?.type,
+						}))}
+					/>
 				</div>
 				<SettingOutlined className={styles['nav-options']} />
 				<QuestionCircleOutlined className={styles['nav-options']} />

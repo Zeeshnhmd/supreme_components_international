@@ -241,7 +241,6 @@ const Insights = () => {
 						options={options.options}
 						series={options.series}
 						type="pie"
-						width={300}
 					/>
 				</div>
 
@@ -251,7 +250,6 @@ const Insights = () => {
 						options={barOptions.options}
 						series={barOptions.series}
 						type="bar"
-						width={300}
 					/>
 				</div>
 			</div>
