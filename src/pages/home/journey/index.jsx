@@ -5,7 +5,9 @@ import styles from './journey.module.scss';
 
 const { Panel } = Collapse;
 
-const Journey = () => {
+const Journey = ({ userType }) => {
+	console.log(userType, 'hi teh');
+
 	const mySalesPerformance = [
 		{ id: '1', title: 'Get insights into my performance' },
 		{ id: '2', title: 'View my YOY trends' },
@@ -13,7 +15,24 @@ const Journey = () => {
 		{ id: '4', title: 'View MPN-level record of transactions' },
 	];
 
-	const myCustomer = [
+	const myTeamsSalesPerformance = [
+		{ id: '1', title: 'Get my team’s insights into our performance' },
+		{ id: '2', title: 'View my team’s YOY trends' },
+		{ id: '3', title: 'View my team’s Account-level record of transactions' },
+		{ id: '4', title: 'View my team’s  MPN-level record of transactions' },
+	];
+
+	const mySalesPerformanceCE = [
+		{ id: '1', title: 'Get insights into SCI’s performance' },
+		{ id: '2', title: 'View SCI’s team’s YOY trends' },
+		{
+			id: '3',
+			title: 'View SCI’s team’s Account-level record of transactions',
+		},
+		{ id: '4', title: 'View SCI’s team’s  MPN-level record of transactions' },
+	];
+
+	const myCustomerSR = [
 		{
 			id: 1,
 			title: 'My Email Engagement',
@@ -76,6 +95,132 @@ const Journey = () => {
 		},
 	];
 
+	const myCustomerSM = [
+		{
+			id: 1,
+			title: 'My Email Engagement',
+			data: [
+				{
+					id: '1',
+					name: 'View my team’s  customer email activity',
+				},
+				{
+					id: '2',
+					name: 'View my team’s contact email activity',
+				},
+				{
+					id: '3',
+					name: 'View my team’s conversation statistics',
+				},
+			],
+		},
+		{
+			id: 2,
+			title: 'My RFQ opportunities',
+			data: [
+				{
+					id: '1',
+					name: 'View my team’s RFQ stats by account',
+				},
+				{
+					id: '2',
+					name: 'View my team’s RFQs by account',
+				},
+			],
+		},
+		{
+			id: 3,
+			title: 'My Quotes',
+			data: [
+				{
+					id: '1',
+					name: 'View my team’s Quote Summaries',
+				},
+				{
+					id: '2',
+					name: 'View my team’s Quote Book',
+				},
+			],
+		},
+		{
+			id: 4,
+			title: 'My Sources',
+			data: [
+				{
+					id: '1',
+					name: 'View my team’s MPN cost book',
+				},
+				{
+					id: '2',
+					name: 'View the Sourcing Queue',
+				},
+			],
+		},
+	];
+
+	const myCustomerCE = [
+		{
+			id: 1,
+			title: 'My Email Engagement',
+			data: [
+				{
+					id: '1',
+					name: 'View SCI’s team’s  customer email activity',
+				},
+				{
+					id: '2',
+					name: 'View SCI’s team’s contact email activity',
+				},
+				{
+					id: '3',
+					name: 'View SCI’s team’s conversation statistics',
+				},
+			],
+		},
+		{
+			id: 2,
+			title: 'My RFQ opportunities',
+			data: [
+				{
+					id: '1',
+					name: 'View SCI’s RFQ stats by account',
+				},
+				{
+					id: '2',
+					name: 'View SCI’s RFQs by account',
+				},
+			],
+		},
+		{
+			id: 3,
+			title: 'My Quotes',
+			data: [
+				{
+					id: '1',
+					name: 'View SCI’s Quote Summaries',
+				},
+				{
+					id: '2',
+					name: 'View SCI’s Quote Book',
+				},
+			],
+		},
+		{
+			id: 4,
+			title: 'My Sources',
+			data: [
+				{
+					id: '1',
+					name: 'View SCI’s MPN cost book',
+				},
+				{
+					id: '2',
+					name: 'View the Sourcing Queue',
+				},
+			],
+		},
+	];
+
 	return (
 		<div className={styles['wrapper']}>
 			<div className={styles['tabs']}>
@@ -110,17 +255,47 @@ const Journey = () => {
 								header={
 									<div className={styles['panel-header-wrapper']}>
 										<p className={styles['panel-header']}>
-											My Sales Performance
+											{(userType === 'SR' ||
+												userType === 'CE' ||
+												userType === 'CE' ||
+												userType === 'S' ||
+												userType === 'Admin') &&
+												'My Sales Performance'}
+											{userType === 'SM' && 'My Team’s Sales Performance'}
 										</p>
 									</div>
 								}
 								key="1"
 							>
-								{mySalesPerformance.map((el) => (
-									<div key={el.id} className={styles['card']}>
-										<p className={styles['card-name']}>{el.title}</p>
-									</div>
-								))}
+								{userType === 'SR' && (
+									<>
+										{mySalesPerformance.map((el) => (
+											<div key={el.id} className={styles['card']}>
+												<p className={styles['card-name']}>{el.title}</p>
+											</div>
+										))}
+									</>
+								)}
+								{userType === 'SM' && (
+									<>
+										{myTeamsSalesPerformance.map((el) => (
+											<div key={el.id} className={styles['card']}>
+												<p className={styles['card-name']}>{el.title}</p>
+											</div>
+										))}
+									</>
+								)}
+								{(userType === 'CE' ||
+									userType === 'S' ||
+									userType === 'Admin') && (
+									<>
+										{mySalesPerformanceCE.map((el) => (
+											<div key={el.id} className={styles['card']}>
+												<p className={styles['card-name']}>{el.title}</p>
+											</div>
+										))}
+									</>
+								)}
 							</Panel>
 						</Collapse>
 					</div>
@@ -143,23 +318,71 @@ const Journey = () => {
 							)}
 							className={styles['collapse-wrapper']}
 						>
-							{myCustomer.map((el) => (
-								<Panel
-									key={el.id}
-									className={styles['collapse-panel']}
-									header={
-										<div className={styles['panel-header-wrapper']}>
-											<p className={styles['panel-header']}>{el.title}</p>
-										</div>
-									}
-								>
-									{el.data.map((el) => (
-										<div key={el.id} className={styles['card']}>
-											<p className={styles['card-name']}>{el.name}</p>
-										</div>
+							{userType === 'SR' && (
+								<>
+									{myCustomerSR.map((el) => (
+										<Panel
+											key={el.id}
+											className={styles['collapse-panel']}
+											header={
+												<div className={styles['panel-header-wrapper']}>
+													<p className={styles['panel-header']}>{el.title}</p>
+												</div>
+											}
+										>
+											{el.data.map((el) => (
+												<div key={el.id} className={styles['card']}>
+													<p className={styles['card-name']}>{el.name}</p>
+												</div>
+											))}
+										</Panel>
 									))}
-								</Panel>
-							))}
+								</>
+							)}
+							{userType === 'SM' && (
+								<>
+									{myCustomerSM.map((el) => (
+										<Panel
+											key={el.id}
+											className={styles['collapse-panel']}
+											header={
+												<div className={styles['panel-header-wrapper']}>
+													<p className={styles['panel-header']}>{el.title}</p>
+												</div>
+											}
+										>
+											{el.data.map((el) => (
+												<div key={el.id} className={styles['card']}>
+													<p className={styles['card-name']}>{el.name}</p>
+												</div>
+											))}
+										</Panel>
+									))}
+								</>
+							)}
+							{(userType === 'CE' ||
+								userType === 'S' ||
+								userType === 'Admin') && (
+								<>
+									{myCustomerCE.map((el) => (
+										<Panel
+											key={el.id}
+											className={styles['collapse-panel']}
+											header={
+												<div className={styles['panel-header-wrapper']}>
+													<p className={styles['panel-header']}>{el.title}</p>
+												</div>
+											}
+										>
+											{el.data.map((el) => (
+												<div key={el.id} className={styles['card']}>
+													<p className={styles['card-name']}>{el.name}</p>
+												</div>
+											))}
+										</Panel>
+									))}
+								</>
+							)}
 						</Collapse>
 					</div>
 				</Col>

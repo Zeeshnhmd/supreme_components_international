@@ -7,11 +7,7 @@ import { Avatar, Dropdown, Tag } from 'antd';
 import React, { useState } from 'react';
 import styles from './header.module.scss';
 
-const Header = ({ userTypes }) => {
-	console.log(userTypes);
-
-	const [userType, setUserType] = useState('SR');
-
+const Header = ({ userTypes, userType, setUserType }) => {
 	const items = [
 		{
 			label: <a href="/">View Profile</a>,

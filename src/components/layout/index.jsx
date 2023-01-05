@@ -4,7 +4,7 @@ import SideBar from '../sidebar';
 
 import styles from './layout.module.scss';
 
-const Layout = ({ children, userTypes }) => {
+const Layout = ({ children, userTypes, userType, setUserType }) => {
 	const [collapsed, setCollapsed] = useState(false);
 	const toggleCollapsed = () => {
 		setCollapsed(!collapsed);
@@ -13,7 +13,11 @@ const Layout = ({ children, userTypes }) => {
 	return (
 		<div className={styles['layout-wrapper']}>
 			<div className={styles['header']}>
-				<Header userTypes={userTypes} />
+				<Header
+					userTypes={userTypes}
+					userType={userType}
+					setUserType={setUserType}
+				/>
 			</div>
 			<div className={styles['sidebar-content-wrapper']}>
 				<div

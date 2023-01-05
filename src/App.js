@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Layout from './components/layout';
@@ -15,11 +16,13 @@ function App() {
 		{ id: '5', type: 'Admin' },
 	];
 
+	const [userType, setUserType] = useState('SR');
+
 	return (
-		<Layout userTypes={userTypes}>
+		<Layout userTypes={userTypes} userType={userType} setUserType={setUserType}>
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/my-journey" element={<Journey />} />
+				<Route path="/my-journey" element={<Journey userType={userType} />} />
 				<Route path="/sales-performance/insights" element={<Insights />} />
 				<Route path="/sales-performance/trends" element={<Trends />} />
 			</Routes>
