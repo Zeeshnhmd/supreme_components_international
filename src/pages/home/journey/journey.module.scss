@@ -1,10 +1,30 @@
 @import '../../../styles/variables';
 
 .wrapper {
+	position: relative;
+	.notification {
+		background-color: #e7efff;
+		padding: 10px;
+		border-radius: 5px;
+		width: 100%;
+		position: absolute;
+		top: -30px;
+		left: 0px;
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
+		.notification-message {
+			font-weight: 500;
+			font-size: 14px;
+			margin-bottom: 0;
+		}
+	}
 	.tabs {
 		display: flex;
 		align-items: center;
 		gap: 10px;
+		padding-top: 60px;
 
 		.tab {
 			margin-bottom: 0;

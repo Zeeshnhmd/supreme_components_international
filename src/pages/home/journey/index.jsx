@@ -1,4 +1,8 @@
-import { CaretRightOutlined, HomeOutlined } from '@ant-design/icons';
+import {
+	CaretRightOutlined,
+	ExclamationCircleOutlined,
+	HomeOutlined,
+} from '@ant-design/icons';
 import { Avatar, Collapse, Divider } from 'antd';
 
 import styles from './journey.module.scss';
@@ -223,6 +227,13 @@ const Journey = ({ userType }) => {
 
 	return (
 		<div className={styles['wrapper']}>
+			<div className={styles['notification']}>
+				<ExclamationCircleOutlined />
+				<p className={styles['notification-message']}>
+					News! You have 10 new RFQs since you last logged in worth $23,000. We
+					found 5 sources that you can use to can quote immediately.
+				</p>
+			</div>
 			<div className={styles['tabs']}>
 				<HomeOutlined />
 				<p className={styles['tab']}>
