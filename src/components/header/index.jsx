@@ -35,7 +35,7 @@ const Header = ({ userTypes, userType, setUserType }) => {
 			 `}
 		>
 			<div className={styles['user-name']}>
-				<p className={styles['name']}>Hello, Aslam</p>
+				<p className={styles['name']}>Hello, Supreme</p>
 			</div>
 			<div className={styles['brand-wrapper']}>
 				<p className={styles['brand-name']}>Welcome to Eden</p>
