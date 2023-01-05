@@ -8,7 +8,7 @@ import {
 	MenuUnfoldOutlined,
 	MoneyCollectOutlined,
 } from '@ant-design/icons';
-import { Button, Menu } from 'antd';
+import { Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './sidebar.module.scss';
