@@ -1,5 +1,7 @@
+@import '../../styles/variables';
+
 .header-wrapper {
-	background-color: #fff;
+	color: $color-white;
 	border-bottom: 8px solid #f5f5f5;
 	display: flex;
 	align-items: center;
@@ -12,26 +14,74 @@
 	z-index: 1000;
 
 	.user-name {
+		width: 40%;
 		.name {
 			font-size: 22px;
 			margin-bottom: 0;
 			font-weight: 600;
 		}
 	}
+
 	.brand-wrapper {
+		width: 20%;
+		text-align: center;
 		.brand-name {
 			font-size: 18px;
 			margin-bottom: 0;
 			font-weight: 600;
 		}
 	}
+
 	.users-wrapper {
+		width: 40%;
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-end;
 		align-items: center;
 		gap: 24px;
+
+		.view-type {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+
+			.user-type {
+				margin-bottom: 0;
+			}
+		}
+		.tags {
+			cursor: pointer;
+			.tag-name {
+				margin-bottom: 0;
+				color: $color-white;
+			}
+		}
+
 		.nav-options {
 			cursor: pointer;
 		}
 	}
+}
+
+.header-sr {
+	background-color: #00684b;
+}
+
+.header-sm {
+	background-color: #0070c0;
+}
+
+.header-ce {
+	background-color: #7030a0;
+}
+
+.header-s {
+	background-color: #c00000;
+}
+
+.header-admin {
+	background-color: #001433;
+}
+
+.no-user-type {
+	background-color: $color-white;
 }
