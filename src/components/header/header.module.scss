@@ -97,23 +97,24 @@
 				.select-wrapper {
 					width: 100px;
 					background-color: transparent;
+					color: $color-white !important;
 					:global {
 						.ant-select-selector {
 							background-color: transparent;
 							color: $color-white;
+							border-color: $color-white;
 							border: 1px solid $color-white;
+
+							&:hover {
+								border-color: $color-white;
+							}
 						}
 						.ant-select-arrow {
 							color: $color-white;
 						}
 
-						:where(.css-dev-only-do-not-override-k83k30).ant-select:not(
-								.ant-select-disabled
-							):not(.ant-select-customize-input):not(
-								.ant-pagination-size-changer
-							):hover
-							.ant-select-selector {
-							border-color: transparent;
+						.ant-select-selection-item {
+							color: $color-white;
 						}
 					}
 				}
