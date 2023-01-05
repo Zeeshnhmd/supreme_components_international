@@ -9,7 +9,6 @@ import {
 	MoneyCollectOutlined,
 } from '@ant-design/icons';
 import { Button, Menu } from 'antd';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './sidebar.module.scss';
@@ -27,9 +26,7 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 	}
 
 	const items = [
-		getItem('Home', '/', <HomeOutlined />, [
-			getItem('My Journey', '/my-journey'),
-		]),
+		getItem('Home', '/home', <HomeOutlined />, [getItem('My Journey', '/')]),
 		getItem(
 			'My Sales Performance',
 			'/sales-performance',
@@ -83,9 +80,9 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 				className={` ${styles['side']} ${
 					collapsed === true ? styles['sidebar-collapsed'] : styles['sidebar']
 				}`}
-				defaultSelectedKeys={['/home']}
+				defaultSelectedKeys={['/']}
 				defaultOpenKeys={[
-					'/',
+					'/home',
 					'/sales-performance',
 					'/email-engagement',
 					'/rfq-opportunities',

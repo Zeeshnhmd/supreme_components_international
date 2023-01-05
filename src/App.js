@@ -21,8 +21,7 @@ function App() {
 	return (
 		<Layout userTypes={userTypes} userType={userType} setUserType={setUserType}>
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/my-journey" element={<Journey userType={userType} />} />
+				<Route path="/" element={<Journey userType={userType} />} />
 				<Route path="/sales-performance/insights" element={<Insights />} />
 				<Route path="/sales-performance/trends" element={<Trends />} />
 			</Routes>
