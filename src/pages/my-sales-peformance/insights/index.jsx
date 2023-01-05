@@ -1,5 +1,5 @@
 import { LineChartOutlined } from '@ant-design/icons';
-import { Col, Divider, Row, Table } from 'antd';
+import { Divider, Table } from 'antd';
 import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 

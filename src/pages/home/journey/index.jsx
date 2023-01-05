@@ -1,5 +1,5 @@
 import { CaretRightOutlined, HomeOutlined } from '@ant-design/icons';
-import { Avatar, Col, Collapse, Divider, Row } from 'antd';
+import { Avatar, Collapse, Divider } from 'antd';
 
 import styles from './journey.module.scss';
 
