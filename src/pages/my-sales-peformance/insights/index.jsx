@@ -19,19 +19,8 @@ const Insights = () => {
 			},
 			labels: ['1st Qtr', '2nd Qtr', '3rd Qtr', '4th Qtr'],
 			colors: ['#4472C4', '#ED7D31', '#A5A5A5', '#FFC000'],
-			// responsive: [
-			// 	{
-			// 		breakpoint: 400,
-			// 		options: {
-			// 			chart: {
-			// 				width: 200,
-			// 			},
-			// 			legend: {
-			// 				position: 'bottom',
-			// 			},
-			// 		},
-			// 	},
-			// ],
+			
+		
 			legend: {
 				position: 'bottom',
 				fontSize: '12px',
@@ -108,26 +97,8 @@ const Insights = () => {
 				},
 			},
 		},
-		// reponsive: [
-		// 	{
-		// 		breakpoint: 1024,
-		// 		options: {
-		// 			chart: {
-		// 				width: 600,
-		// 				height: '100%',
-		// 			},
-		// 		},
-		// 	},
-		// 	{
-		// 		breakpoint: 769,
-		// 		options: {
-		// 			chart: {
-		// 				width: '100%',
-		// 				height: '600',
-		// 			},
-		// 		},
-		// 	},
-		// ],
+	
+	
 	});
 
 	console.log(setBarOptions);
