@@ -1,8 +1,4 @@
-import {
-	EyeOutlined,
-	QuestionCircleOutlined,
-	SettingOutlined,
-} from '@ant-design/icons';
+import { EyeOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Avatar, Dropdown, Select, Tag } from 'antd';
 
 import styles from './header.module.scss';
@@ -16,6 +12,10 @@ const Header = ({ userTypes, userType, setUserType }) => {
 		{
 			label: <a href="/">Logout</a>,
 			key: '1',
+		},
+		{
+			label: <a href="/">Setting</a>,
+			key: '2',
 		},
 	];
 
@@ -67,7 +67,7 @@ const Header = ({ userTypes, userType, setUserType }) => {
 						}))}
 					/>
 				</div>
-				<SettingOutlined className={styles['nav-options']} />
+
 				<QuestionCircleOutlined className={styles['nav-options']} />
 				<Dropdown
 					menu={{
