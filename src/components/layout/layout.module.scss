@@ -4,11 +4,20 @@
 		padding-top: 64px;
 		display: flex;
 		align-items: flex-start;
-
+		background-color: $color-bg;
+		.collapsed-sidebar {
+			width: 100px;
+		}
 		.sidebar {
 			width: 256px;
 		}
 
+		.collapsed-content {
+			padding: 30px 16px;
+			background-color: $color-white;
+			width: calc(100vw - 100px);
+			height: calc(100% - 64px);
+		}
 		.content {
 			padding: 30px 16px;
 			background-color: $color-white;
