@@ -4,7 +4,7 @@ import {
 	SettingOutlined,
 } from '@ant-design/icons';
 import { Avatar, Dropdown, Tag } from 'antd';
-import React, { useState } from 'react';
+
 import styles from './header.module.scss';
 
 const Header = ({ userTypes, userType, setUserType }) => {

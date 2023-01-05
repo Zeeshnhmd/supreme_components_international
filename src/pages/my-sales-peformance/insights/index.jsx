@@ -22,6 +22,7 @@ const Insights = () => {
 			},
 		},
 	});
+	console.log(setOptions);
 
 	const [barOptions, setBarOptions] = useState({
 		series: [
@@ -81,6 +82,8 @@ const Insights = () => {
 			},
 		},
 	});
+
+	console.log(setBarOptions);
 
 	const dataSource = [
 		{

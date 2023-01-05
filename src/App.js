@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Layout from './components/layout';
-import Home from './pages/home';
 import Journey from './pages/home/journey';
 import Insights from './pages/my-sales-peformance/insights';
 import Trends from './pages/my-sales-peformance/trends';
