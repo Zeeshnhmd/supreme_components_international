@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../header';
 import SideBar from '../sidebar';
 
@@ -9,6 +9,14 @@ const Layout = ({ children, userTypes, userType, setUserType }) => {
 	const toggleCollapsed = () => {
 		setCollapsed(!collapsed);
 	};
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia('(min-width: 600px)');
+
+		if (mediaQuery) {
+			setCollapsed(true);
+		}
+	}, []);
 
 	return (
 		<div className={styles['layout-wrapper']}>

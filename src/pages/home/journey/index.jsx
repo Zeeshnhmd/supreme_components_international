@@ -231,132 +231,56 @@ const Journey = ({ userType }) => {
 				</p>
 			</div>
 			<Divider />
-			<Row gutter={[32, 32]} className={styles['trees-wrapper']}>
-				<Col sm={24} md={24} lg={12} xl={12} xxl={12}>
-					<div className={styles['tree-wrapper']}>
-						<div className={styles['user-info']}>
-							<Avatar
-								size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 64, xxl: 64 }}
-								src="https://i.pravatar.cc/150?img=1"
-							/>
+			<div className={styles['trees-wrapper']}>
+				<div className={styles['tree-wrapper']}>
+					<div className={styles['user-info']}>
+						<Avatar
+							size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 64, xxl: 64 }}
+							src="https://i.pravatar.cc/150?img=1"
+						/>
 
-							<p className={styles['user-name']}>Me</p>
-						</div>
-						<Collapse
-							bordered={false}
-							defaultActiveKey={['1']}
-							expandIcon={({ isActive }) => (
-								<CaretRightOutlined rotate={isActive ? 90 : 0} />
-							)}
-							className={styles['collapse-wrapper']}
-						>
-							<Panel
-								className={styles['collapse-panel']}
-								header={
-									<div className={styles['panel-header-wrapper']}>
-										<p className={styles['panel-header']}>
-											{(userType === 'SR' ||
-												userType === 'CE' ||
-												userType === 'CE' ||
-												userType === 'S' ||
-												userType === 'Admin') &&
-												'My Sales Performance'}
-											{userType === 'SM' && 'My Team’s Sales Performance'}
-										</p>
-									</div>
-								}
-								key="1"
-							>
-								{userType === 'SR' && (
-									<>
-										{mySalesPerformance.map((el) => (
-											<div key={el.id} className={styles['card']}>
-												<p className={styles['card-name']}>{el.title}</p>
-											</div>
-										))}
-									</>
-								)}
-								{userType === 'SM' && (
-									<>
-										{myTeamsSalesPerformance.map((el) => (
-											<div key={el.id} className={styles['card']}>
-												<p className={styles['card-name']}>{el.title}</p>
-											</div>
-										))}
-									</>
-								)}
-								{(userType === 'CE' ||
-									userType === 'S' ||
-									userType === 'Admin') && (
-									<>
-										{mySalesPerformanceCE.map((el) => (
-											<div key={el.id} className={styles['card']}>
-												<p className={styles['card-name']}>{el.title}</p>
-											</div>
-										))}
-									</>
-								)}
-							</Panel>
-						</Collapse>
+						<p className={styles['user-name']}>Me</p>
 					</div>
-				</Col>
-				<Col sm={24} md={24} lg={12} xl={12} xxl={12}>
-					<div className={styles['tree-wrapper']}>
-						<div className={styles['user-info']}>
-							<Avatar
-								size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 64, xxl: 64 }}
-								src="https://i.pravatar.cc/150?img=7"
-							/>
-
-							<p className={styles['user-name']}>My Customer</p>
-						</div>
-						<Collapse
-							bordered={false}
-							defaultActiveKey={['1']}
-							expandIcon={({ isActive }) => (
-								<CaretRightOutlined rotate={isActive ? 90 : 0} />
-							)}
-							className={styles['collapse-wrapper']}
+					<Collapse
+						bordered={false}
+						defaultActiveKey={['1']}
+						expandIcon={({ isActive }) => (
+							<CaretRightOutlined rotate={isActive ? 90 : 0} />
+						)}
+						className={styles['collapse-wrapper']}
+					>
+						<Panel
+							className={styles['collapse-panel']}
+							header={
+								<div className={styles['panel-header-wrapper']}>
+									<p className={styles['panel-header']}>
+										{(userType === 'SR' ||
+											userType === 'CE' ||
+											userType === 'CE' ||
+											userType === 'S' ||
+											userType === 'Admin') &&
+											'My Sales Performance'}
+										{userType === 'SM' && 'My Team’s Sales Performance'}
+									</p>
+								</div>
+							}
+							key="1"
 						>
 							{userType === 'SR' && (
 								<>
-									{myCustomerSR.map((el) => (
-										<Panel
-											key={el.id}
-											className={styles['collapse-panel']}
-											header={
-												<div className={styles['panel-header-wrapper']}>
-													<p className={styles['panel-header']}>{el.title}</p>
-												</div>
-											}
-										>
-											{el.data.map((el) => (
-												<div key={el.id} className={styles['card']}>
-													<p className={styles['card-name']}>{el.name}</p>
-												</div>
-											))}
-										</Panel>
+									{mySalesPerformance.map((el) => (
+										<div key={el.id} className={styles['card']}>
+											<p className={styles['card-name']}>{el.title}</p>
+										</div>
 									))}
 								</>
 							)}
 							{userType === 'SM' && (
 								<>
-									{myCustomerSM.map((el) => (
-										<Panel
-											key={el.id}
-											className={styles['collapse-panel']}
-											header={
-												<div className={styles['panel-header-wrapper']}>
-													<p className={styles['panel-header']}>{el.title}</p>
-												</div>
-											}
-										>
-											{el.data.map((el) => (
-												<div key={el.id} className={styles['card']}>
-													<p className={styles['card-name']}>{el.name}</p>
-												</div>
-											))}
-										</Panel>
+									{myTeamsSalesPerformance.map((el) => (
+										<div key={el.id} className={styles['card']}>
+											<p className={styles['card-name']}>{el.title}</p>
+										</div>
 									))}
 								</>
 							)}
@@ -364,29 +288,102 @@ const Journey = ({ userType }) => {
 								userType === 'S' ||
 								userType === 'Admin') && (
 								<>
-									{myCustomerCE.map((el) => (
-										<Panel
-											key={el.id}
-											className={styles['collapse-panel']}
-											header={
-												<div className={styles['panel-header-wrapper']}>
-													<p className={styles['panel-header']}>{el.title}</p>
-												</div>
-											}
-										>
-											{el.data.map((el) => (
-												<div key={el.id} className={styles['card']}>
-													<p className={styles['card-name']}>{el.name}</p>
-												</div>
-											))}
-										</Panel>
+									{mySalesPerformanceCE.map((el) => (
+										<div key={el.id} className={styles['card']}>
+											<p className={styles['card-name']}>{el.title}</p>
+										</div>
 									))}
 								</>
 							)}
-						</Collapse>
+						</Panel>
+					</Collapse>
+				</div>
+
+				<div className={styles['tree-wrapper']}>
+					<div className={styles['user-info']}>
+						<Avatar
+							size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 64, xxl: 64 }}
+							src="https://i.pravatar.cc/150?img=7"
+						/>
+
+						<p className={styles['user-name']}>My Customer</p>
 					</div>
-				</Col>
-			</Row>
+					<Collapse
+						bordered={false}
+						defaultActiveKey={['1']}
+						expandIcon={({ isActive }) => (
+							<CaretRightOutlined rotate={isActive ? 90 : 0} />
+						)}
+						className={styles['collapse-wrapper']}
+					>
+						{userType === 'SR' && (
+							<>
+								{myCustomerSR.map((el) => (
+									<Panel
+										key={el.id}
+										className={styles['collapse-panel']}
+										header={
+											<div className={styles['panel-header-wrapper']}>
+												<p className={styles['panel-header']}>{el.title}</p>
+											</div>
+										}
+									>
+										{el.data.map((el) => (
+											<div key={el.id} className={styles['card']}>
+												<p className={styles['card-name']}>{el.name}</p>
+											</div>
+										))}
+									</Panel>
+								))}
+							</>
+						)}
+						{userType === 'SM' && (
+							<>
+								{myCustomerSM.map((el) => (
+									<Panel
+										key={el.id}
+										className={styles['collapse-panel']}
+										header={
+											<div className={styles['panel-header-wrapper']}>
+												<p className={styles['panel-header']}>{el.title}</p>
+											</div>
+										}
+									>
+										{el.data.map((el) => (
+											<div key={el.id} className={styles['card']}>
+												<p className={styles['card-name']}>{el.name}</p>
+											</div>
+										))}
+									</Panel>
+								))}
+							</>
+						)}
+						{(userType === 'CE' ||
+							userType === 'S' ||
+							userType === 'Admin') && (
+							<>
+								{myCustomerCE.map((el) => (
+									<Panel
+										key={el.id}
+										className={styles['collapse-panel']}
+										header={
+											<div className={styles['panel-header-wrapper']}>
+												<p className={styles['panel-header']}>{el.title}</p>
+											</div>
+										}
+									>
+										{el.data.map((el) => (
+											<div key={el.id} className={styles['card']}>
+												<p className={styles['card-name']}>{el.name}</p>
+											</div>
+										))}
+									</Panel>
+								))}
+							</>
+						)}
+					</Collapse>
+				</div>
+			</div>
 		</div>
 	);
 };

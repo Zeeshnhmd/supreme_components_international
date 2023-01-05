@@ -14,6 +14,19 @@ const Insights = () => {
 				type: 'pie',
 			},
 			labels: ['1st Qtr', '2nd Qtr', '3rd Qtr', '4th Qtr'],
+			responsive: [
+				{
+					breakpoint: 400,
+					options: {
+						chart: {
+							width: 200,
+						},
+						legend: {
+							position: 'bottom',
+						},
+					},
+				},
+			],
 			legend: {
 				position: 'bottom',
 				fontSize: '12px',
@@ -42,8 +55,9 @@ const Insights = () => {
 
 		options: {
 			chart: {
+				width: '100%',
+				height: 380,
 				type: 'bar',
-				height: 350,
 				toolbar: { show: false },
 			},
 			plotOptions: {
@@ -209,6 +223,7 @@ const Insights = () => {
 			key: 'sales_revenue',
 		},
 	];
+
 	return (
 		<div className={styles['wrapper']}>
 			<div className={styles['tabs']}>
@@ -219,32 +234,30 @@ const Insights = () => {
 				</p>
 			</div>
 			<Divider />
-			<Row className={styles['charts-wrapper']} gutter={[32, 32]}>
-				<Col sm={24} md={24} lg={12} xl={12} xxl={12}>
-					<div className={styles['card-wrapper']}>
-						<p className={styles['card-title']}>Sales by Quater</p>
-						<ReactApexChart
-							options={options.options}
-							series={options.series}
-							type="pie"
-						/>
-					</div>
-				</Col>
-				<Col sm={24} md={24} lg={12} xl={12} xxl={12}>
-					<div className={styles['card-wrapper']}>
-						<p className={styles['card-title']}># of Orders (Breakdown)</p>
-						<ReactApexChart
-							options={barOptions.options}
-							series={barOptions.series}
-							type="bar"
-							height="100%"
-						/>
-					</div>
-				</Col>
-			</Row>
+			<div className={styles['charts-wrapper']}>
+				<div className={styles['card-wrapper']}>
+					<p className={styles['card-title']}>Sales by Quater</p>
+					<ReactApexChart
+						options={options.options}
+						series={options.series}
+						type="pie"
+						width={300}
+					/>
+				</div>
+
+				<div className={styles['card-wrapper']}>
+					<p className={styles['card-title']}># of Orders (Breakdown)</p>
+					<ReactApexChart
+						options={barOptions.options}
+						series={barOptions.series}
+						type="bar"
+						width={300}
+					/>
+				</div>
+			</div>
 			<Divider />
 			<p className={styles['card-title']}>Top Accounts</p>
-			<Table dataSource={dataSource} columns={columns} />
+			<Table dataSource={dataSource} columns={columns} scroll={{ x: 500 }} />
 		</div>
 	);
 };

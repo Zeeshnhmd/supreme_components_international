@@ -19,6 +19,9 @@
 			display: grid;
 			place-items: center;
 		}
+		@media (max-width: 600px) {
+			display: none;
+		}
 	}
 
 	.side {
@@ -33,6 +36,11 @@
 
 		&::-webkit-scrollbar {
 			display: none;
+		}
+
+		@media (max-width: 600px) {
+			margin-top: 0;
+			top: 60px;
 		}
 	}
 
