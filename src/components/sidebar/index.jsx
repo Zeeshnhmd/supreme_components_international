@@ -4,14 +4,17 @@ import {
 	HomeOutlined,
 	LineChartOutlined,
 	MailOutlined,
+	MenuFoldOutlined,
+	MenuUnfoldOutlined,
 	MoneyCollectOutlined,
 } from '@ant-design/icons';
-import { Menu } from 'antd';
+import { Button, Menu } from 'antd';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './sidebar.module.scss';
 
-const SideBar = () => {
+const SideBar = ({ collapsed, toggleCollapsed }) => {
 	const navigate = useNavigate();
 	function getItem(label, key, icon, children, type) {
 		return {
@@ -68,9 +71,18 @@ const SideBar = () => {
 
 	return (
 		<div className={styles['sidebar-wrapper']}>
+			<Button
+				type="primary"
+				onClick={toggleCollapsed}
+				className={styles['collapse-btn']}
+			>
+				{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+			</Button>
 			<Menu
 				onClick={onClick}
-				className={styles['sidebar']}
+				className={` ${styles['side']} ${
+					collapsed === true ? styles['sidebar-collapsed'] : styles['sidebar']
+				}`}
 				defaultSelectedKeys={['/home']}
 				defaultOpenKeys={[
 					'/',
@@ -81,6 +93,7 @@ const SideBar = () => {
 					'/my-quotes',
 				]}
 				mode="inline"
+				inlineCollapsed={collapsed}
 				items={items}
 			/>
 		</div>

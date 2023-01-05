@@ -1,18 +1,32 @@
 @import '../../styles/variables';
 
 .sidebar-wrapper {
-	.sidebar {
+	.collapse-btn {
+		position: fixed;
+		top: 100;
+		left: 28px;
+		z-index: 10;
+	}
+
+	.side {
 		background-color: $color-bg;
-		width: 256px;
 		height: calc(100vh - 64px);
 		overflow: auto;
 		position: fixed;
 		left: 0;
-		top: 64px;
+		top: 100px;
 		bottom: 0;
 
 		&::-webkit-scrollbar {
 			display: none;
 		}
+	}
+
+	.sidebar-collapsed {
+		width: 100px;
+	}
+
+	.sidebar {
+		width: 256px;
 	}
 }
