@@ -28,7 +28,7 @@ const Layout = ({ children, userTypes, userType, setUserType }) => {
 					<SideBar collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
 				</div>
 				<div
-					className={`${
+					className={`${styles['cont']} ${
 						collapsed ? styles['collapsed-content'] : styles['content']
 					}`}
 				>

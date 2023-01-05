@@ -1,28 +1,40 @@
 @import '../../styles/variables';
+
 .layout-wrapper {
 	.sidebar-content-wrapper {
 		padding-top: 64px;
 		display: flex;
 		align-items: flex-start;
 		background-color: $color-bg;
+
 		.collapsed-sidebar {
 			width: 100px;
+
+			@media (max-width: 768px) {
+				width: 50px;
+			}
 		}
+
 		.sidebar {
 			width: 256px;
 		}
 
-		.collapsed-content {
+		.cont {
 			padding: 30px 16px;
 			background-color: $color-white;
-			width: calc(100vw - 100px);
 			height: calc(100% - 64px);
 		}
+
+		.collapsed-content {
+			width: calc(100vw - 100px);
+
+			@media (max-width: 768px) {
+				width: calc(100vw - 50px);
+			}
+		}
+
 		.content {
-			padding: 30px 16px;
-			background-color: $color-white;
 			width: calc(100vw - 256px);
-			height: calc(100% - 64px);
 		}
 	}
 }

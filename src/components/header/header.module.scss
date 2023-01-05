@@ -30,6 +30,10 @@
 			margin-bottom: 0;
 			font-weight: 600;
 		}
+
+		@media (max-width: 768px) {
+			display: none;
+		}
 	}
 
 	.users-wrapper {
@@ -38,6 +42,9 @@
 		justify-content: flex-end;
 		align-items: center;
 		gap: 24px;
+		@media (max-width: 768px) {
+			width: 100%;
+		}
 
 		.view-type {
 			display: flex;

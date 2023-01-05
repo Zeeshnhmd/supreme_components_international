@@ -219,8 +219,8 @@ const Insights = () => {
 				</p>
 			</div>
 			<Divider />
-			<Row className={styles['charts-wrapper']} gutter={32}>
-				<Col sm={24} md={12}>
+			<Row className={styles['charts-wrapper']} gutter={[32, 32]}>
+				<Col sm={24} md={24} lg={12} xl={12} xxl={12}>
 					<div className={styles['card-wrapper']}>
 						<p className={styles['card-title']}>Sales by Quater</p>
 						<ReactApexChart
@@ -230,7 +230,7 @@ const Insights = () => {
 						/>
 					</div>
 				</Col>
-				<Col sm={24} md={12}>
+				<Col sm={24} md={24} lg={12} xl={12} xxl={12}>
 					<div className={styles['card-wrapper']}>
 						<p className={styles['card-title']}># of Orders (Breakdown)</p>
 						<ReactApexChart

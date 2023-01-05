@@ -231,8 +231,8 @@ const Journey = ({ userType }) => {
 				</p>
 			</div>
 			<Divider />
-			<Row gutter={32} className={styles['trees-wrapper']}>
-				<Col sm={24} md={12}>
+			<Row gutter={[32, 32]} className={styles['trees-wrapper']}>
+				<Col sm={24} md={24} lg={12} xl={12} xxl={12}>
 					<div className={styles['tree-wrapper']}>
 						<div className={styles['user-info']}>
 							<Avatar
@@ -300,7 +300,7 @@ const Journey = ({ userType }) => {
 						</Collapse>
 					</div>
 				</Col>
-				<Col sm={24} md={12}>
+				<Col sm={24} md={24} lg={12} xl={12} xxl={12}>
 					<div className={styles['tree-wrapper']}>
 						<div className={styles['user-info']}>
 							<Avatar

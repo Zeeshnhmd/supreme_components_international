@@ -68,13 +68,9 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 
 	return (
 		<div className={styles['sidebar-wrapper']}>
-			<Button
-				type="primary"
-				onClick={toggleCollapsed}
-				className={styles['collapse-btn']}
-			>
+			<div onClick={toggleCollapsed} className={styles['collapse-btn']}>
 				{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-			</Button>
+			</div>
 			<Menu
 				onClick={onClick}
 				className={` ${styles['side']} ${
