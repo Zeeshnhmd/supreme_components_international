@@ -130,20 +130,6 @@ const Journey = ({ userType }) => {
 		},
 		{
 			id: 3,
-			title: 'My Quotes',
-			data: [
-				{
-					id: '1',
-					name: 'View my team’s Quote Summaries',
-				},
-				{
-					id: '2',
-					name: 'View my team’s Quote Book',
-				},
-			],
-		},
-		{
-			id: 4,
 			title: 'My Sources',
 			data: [
 				{
@@ -153,6 +139,20 @@ const Journey = ({ userType }) => {
 				{
 					id: '2',
 					name: 'View the Sourcing Queue',
+				},
+			],
+		},
+		{
+			id: 4,
+			title: 'My Quotes',
+			data: [
+				{
+					id: '1',
+					name: 'View my team’s Quote Summaries',
+				},
+				{
+					id: '2',
+					name: 'View my team’s Quote Book',
 				},
 			],
 		},
