@@ -3,11 +3,11 @@ import SideBar from '../sidebar';
 
 import styles from './layout.module.scss';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, userTypes }) => {
 	return (
 		<div className={styles['layout-wrapper']}>
 			<div className={styles['header']}>
-				<Header />
+				<Header userTypes={userTypes} />
 			</div>
 			<div className={styles['sidebar-content-wrapper']}>
 				<div className={styles['sidebar']}>
