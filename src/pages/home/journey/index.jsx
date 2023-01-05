@@ -303,7 +303,7 @@ const Journey = ({ userType }) => {
 					<div className={styles['user-info']}>
 						<Avatar
 							size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 64, xxl: 64 }}
-							src="https://i.pravatar.cc/150?img=7"
+							src="https://i.pravatar.cc/150?img=12"
 						/>
 
 						<p className={styles['user-name']}>My Customer</p>
