@@ -8,12 +8,14 @@
 			margin-bottom: 0;
 			font-weight: 600;
 			font-size: 15px;
+
 			.tab-name {
 				font-weight: 400;
 				font-size: 14px;
 			}
 		}
 	}
+
 	.charts-wrapper {
 		margin-bottom: 30px;
 		display: flex;
@@ -23,6 +25,7 @@
 		@media (max-width: 768px) {
 			flex-direction: column;
 		}
+
 		.card-wrapper {
 			border-radius: 5px;
 			padding: 20px;
@@ -39,12 +42,20 @@
 		}
 	}
 }
+
 .card-title {
 	font-weight: 600;
 	font-size: 18px;
+
 	@media (max-width: 426px) {
 		font-size: 16px;
 	}
+}
+
+.spinner-wrapper {
+	display: grid;
+	place-items: center;
+	height: 100%;
 }
 
 .date-range-wrapper {
@@ -52,6 +63,7 @@
 	align-items: center;
 	gap: 10px;
 	margin: 20px 0;
+
 	.label {
 		margin-bottom: 0;
 		font-size: 16px;

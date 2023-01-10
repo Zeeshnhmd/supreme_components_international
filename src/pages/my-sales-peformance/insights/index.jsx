@@ -3,10 +3,14 @@ import { LineChartOutlined } from '@ant-design/icons';
 import { Divider } from 'antd';
 import ReactApexChart from 'react-apexcharts';
 import { AgGridReact } from 'ag-grid-react';
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 
 import styles from './insigts.module.scss';
 
 const Insights = () => {
+	const antIcon = <LoadingOutlined style={{ fontSize: 50 }} spin />;
+
 	const [options, setOptions] = useState({
 		series: [44, 55, 13, 43],
 		options: {
@@ -225,7 +229,9 @@ const Insights = () => {
 				style={{ height: '500px', marginBottom: '50px' }}
 			>
 				{loading ? (
-					<h1>Loading....</h1>
+					<div className={styles['spinner-wrapper']}>
+						<Spin indicator={antIcon} />
+					</div>
 				) : (
 					<>
 						<div className={styles['date-range-wrapper']}>
