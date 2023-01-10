@@ -77,14 +77,6 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 					collapsed === true ? styles['sidebar-collapsed'] : styles['sidebar']
 				}`}
 				defaultSelectedKeys={['/']}
-				defaultOpenKeys={[
-					'/home',
-					'/sales-performance',
-					'/email-engagement',
-					'/rfq-opportunities',
-					'/my-sources',
-					'/my-quotes',
-				]}
 				mode="inline"
 				inlineCollapsed={collapsed}
 				items={items}

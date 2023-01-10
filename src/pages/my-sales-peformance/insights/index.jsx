@@ -1,7 +1,8 @@
+import { useState, useEffect, useRef } from 'react';
 import { LineChartOutlined } from '@ant-design/icons';
-import { Divider, Table } from 'antd';
-import { useState } from 'react';
+import { Divider } from 'antd';
 import ReactApexChart from 'react-apexcharts';
+import { AgGridReact } from 'ag-grid-react';
 
 import styles from './insigts.module.scss';
 
@@ -19,8 +20,7 @@ const Insights = () => {
 			},
 			labels: ['1st Qtr', '2nd Qtr', '3rd Qtr', '4th Qtr'],
 			colors: ['#4472C4', '#ED7D31', '#A5A5A5', '#FFC000'],
-			
-		
+
 			legend: {
 				position: 'bottom',
 				fontSize: '12px',
@@ -97,136 +97,92 @@ const Insights = () => {
 				},
 			},
 		},
-	
-	
 	});
 
 	console.log(setBarOptions);
 
-	const dataSource = [
-		{
-			key: '1',
-			company: 'ABC Pte Ltd',
-			contact: 'John',
-			sales_revenue: '$2,392,000',
-		},
+	const gridRef = useRef();
 
-		{
-			key: '2',
-			company: 'Godrej',
-			contact: 'Vishnu',
-			sales_revenue: '$2,392,000',
+	var dateFilterParams = {
+		comparator: (filterLocalDateAtMidnight, cellValue) => {
+			var dateAsString = cellValue;
+			if (dateAsString == null) return -1;
+			var dateParts = dateAsString.split('/');
+			var cellDate = new Date(
+				Number(dateParts[2]),
+				Number(dateParts[1]) - 1,
+				Number(dateParts[0])
+			);
+			if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
+				return 0;
+			}
+			if (cellDate < filterLocalDateAtMidnight) {
+				return -1;
+			}
+			if (cellDate > filterLocalDateAtMidnight) {
+				return 1;
+			}
 		},
+		browserDatePicker: true,
+	};
+
+	const [fromDate, setFromDate] = useState('');
+	const [toDate, setToDate] = useState('');
+	const [loading, setLoading] = useState(false);
+	const [rowData, setRowData] = useState([]);
+
+	const fetchData = async () => {
+		setLoading(true);
+		try {
+			const response = await fetch(
+				'https://www.ag-grid.com/example-assets/olympic-winners.json'
+			);
+			const data = await response.json();
+			setRowData(data);
+		} catch (err) {
+			console.log(err);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	useEffect(() => {
+		fetchData();
+	}, []);
+
+	const columnDefs = [
+		{ field: 'age' },
+		{ field: 'athlete' },
+		{ field: 'bronze' },
+		{ field: 'country' },
 		{
-			key: '3',
-			company: 'Tata Motors',
-			contact: 'Alex',
-			sales_revenue: '$2,392,000',
+			field: 'date',
+			filter: 'agDateColumnFilter',
+			filterParams: dateFilterParams,
 		},
-		{
-			key: '4',
-			company: 'TVS',
-			contact: 'Rahul',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '5',
-			company: 'Honeywell',
-			contact: 'Lee',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '6',
-			company: 'Indian Oil',
-			contact: 'Catherine',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '7',
-			company: 'Bharat Electrical',
-			contact: 'Sathish',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '8',
-			company: 'Continental',
-			contact: 'Alvin',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '9',
-			company: 'Shenzhen Electricals',
-			contact: 'Jimmy',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '10',
-			company: 'Planet Electronics',
-			contact: 'Mary',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '10',
-			company: 'Global Components',
-			contact: 'Kumar',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '11',
-			company: 'IBM',
-			contact: 'Frank',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '12',
-			company: 'Panasonic',
-			contact: 'Jane',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '13',
-			company: 'Sony',
-			contact: 'Olivia',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '14',
-			company: 'Dell',
-			contact: 'Thomas',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '15',
-			company: 'Ritz',
-			contact: 'Thierry',
-			sales_revenue: '$2,392,000',
-		},
-		{
-			key: '16',
-			company: 'Tekcell',
-			contact: 'Arun',
-			sales_revenue: '$2,392,000',
-		},
+		{ field: 'gold' },
+		{ field: 'silver' },
+		{ field: 'sport' },
+		{ field: 'total' },
+		{ field: 'year' },
 	];
 
-	const columns = [
-		{ title: '#', dataIndex: 'key', key: 'key' },
-		{
-			title: 'Company',
-			dataIndex: 'company',
-			key: 'company',
-		},
-		{
-			title: 'Contact',
-			dataIndex: 'contact',
-			key: 'contact',
-		},
-		{
-			title: 'Sales Revenue',
-			dataIndex: 'sales_revenue',
-			key: 'sales_revenue',
-		},
-	];
+	const getType = () => {
+		if (fromDate !== '' && toDate !== '') return 'inRange';
+		else if (fromDate !== ' ') return 'greaterThan';
+		else if (toDate !== '') return 'lessThan';
+	};
+
+	useEffect(() => {
+		var dateFilterComponent = gridRef.current.api?.getFilterInstance('date');
+		dateFilterComponent?.setModel({
+			type: getType(),
+			dateFrom: fromDate ? fromDate : toDate,
+			dateTo: toDate,
+		});
+		gridRef.current.api?.onFilterChanged();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [fromDate, toDate]);
 
 	return (
 		<div className={styles['wrapper']}>
@@ -263,7 +219,32 @@ const Insights = () => {
 			</div>
 			<Divider />
 			<p className={styles['card-title']}>Top Accounts</p>
-			<Table dataSource={dataSource} columns={columns} scroll={{ x: 500 }} />
+
+			<div
+				className="ag-theme-alpine"
+				style={{ height: '500px', marginBottom: '50px' }}
+			>
+				{loading ? (
+					<h1>Loading....</h1>
+				) : (
+					<>
+						<div className={styles['date-range-wrapper']}>
+							<p className={styles['label']}>From:</p>
+							<input
+								onChange={(e) => setFromDate(e.target.value)}
+								type="date"
+							/>
+							<p className={styles['label']}>To:</p>
+							<input onChange={(e) => setToDate(e.target.value)} type="date" />
+						</div>
+						<AgGridReact
+							ref={gridRef}
+							rowData={rowData}
+							columnDefs={columnDefs}
+						/>
+					</>
+				)}
+			</div>
 		</div>
 	);
 };

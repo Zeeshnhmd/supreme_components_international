@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import './styles/index.scss';
 
 import 'antd/dist/reset.css';
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
