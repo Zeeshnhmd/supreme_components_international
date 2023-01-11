@@ -10,13 +10,13 @@ const Layout = ({ children, userTypes, userType, setUserType }) => {
 		setCollapsed(!collapsed);
 	};
 
-	// useEffect(() => {
-	// 	const mediaQuery = window.matchMedia('(min-width: 600px)');
+	useEffect(() => {
+		const mediaQuery = window.matchMedia('(min-width: 600px)');
 
-	// 	if (mediaQuery) {
-	// 		setCollapsed(true);
-	// 	}
-	// }, []);
+		if (mediaQuery) {
+			setCollapsed(true);
+		}
+	}, []);
 
 	return (
 		<div className={styles['layout-wrapper']}>
