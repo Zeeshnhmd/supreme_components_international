@@ -10,7 +10,6 @@ import styles from './journey.module.scss';
 const { Panel } = Collapse;
 
 const Journey = ({ userType }) => {
-	console.log(userType, 'hi teh');
 
 	const mySalesPerformance = [
 		{ id: '1', title: 'Get insights into my performance' },

@@ -1,3 +1,5 @@
+import {useState} from 'react';
+
 import {
 	BranchesOutlined,
 	HddOutlined,
@@ -64,14 +66,17 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 		]),
 	];
 
-	const onClick = ({ key }) => {
-		console.log(key);
-		navigate(key);
+	const onClick = ({key}) => {
+		setTimeout(()=>{
+			navigate(key);
+		},0)
 	};
 
 	const onOpenChange = (key) => {
-		navigate(key[key.length - 1]);
+		navigate(key[key.length - 1])
 	};
+
+
 
 	return (
 		<div className={styles['sidebar-wrapper']}>
@@ -79,16 +84,15 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 				{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
 			</div>
 			<Menu
-				onOpenChange={onOpenChange}
-				onClick={onClick}
 				className={` ${styles['side']} ${
 					collapsed === true ? styles['sidebar-collapsed'] : styles['sidebar']
 				}`}
-				defaultSelectedKeys={['/']}
 				mode="inline"
 				inlineCollapsed={collapsed}
 				items={items}
 				triggerSubMenuAction="click"
+				onClick={onClick}
+				onOpenChange={onOpenChange}	
 			/>
 		</div>
 	);

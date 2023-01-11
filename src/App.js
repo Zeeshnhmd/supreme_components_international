@@ -5,6 +5,7 @@ import Layout from './components/layout';
 import Journey from './pages/home/journey';
 import Insights from './pages/my-sales-peformance/insights';
 
+
 function App() {
 	const userTypes = [
 		{ id: '1', type: 'SR' },
@@ -22,7 +23,7 @@ function App() {
 				<Route path="/" element={<h1>Home</h1>} />
 				<Route path="/my-journey" element={<Journey userType={userType} />} />
 
-				<Route exact path="/sales-performance" element={<h1>Sales Performance</h1>}  />
+				<Route  path="/sales-performance" element={<h1>Sales Performance</h1>}  />
 				<Route path="/sales-performance/insights" element={<Insights />} />
 				<Route path="/sales-performance/trends" element={<h1>Trends</h1>} />
 				<Route path="/sales-performance/customer-level" element={<h1>Customer Level</h1>} />
