@@ -3,6 +3,7 @@
 .sidebar-wrapper {
 	overflow: auto;
 	height: 100vh;
+	z-index: 1000;
 
 	.collapse-btn {
 		cursor: pointer;

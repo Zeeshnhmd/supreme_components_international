@@ -6,8 +6,9 @@ import styles from './layout.module.scss';
 
 const Layout = ({ children, userTypes, userType, setUserType }) => {
 	const [collapsed, setCollapsed] = useState(true);
+
 	const toggleCollapsed = () => {
-		setCollapsed(!collapsed);
+		setCollapsed(false);
 	};
 
 	useEffect(() => {
@@ -33,7 +34,7 @@ const Layout = ({ children, userTypes, userType, setUserType }) => {
 						collapsed === true ? styles['collapsed-sidebar'] : styles['sidebar']
 					}`}
 				>
-					<SideBar collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
+					<SideBar collapsed={collapsed} toggleCollapsed={toggleCollapsed} setCollapsed={setCollapsed} />
 				</div>
 				<div
 					className={`${styles['cont']} ${

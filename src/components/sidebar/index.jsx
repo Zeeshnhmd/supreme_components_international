@@ -1,5 +1,4 @@
-
-
+import {useState} from 'react'
 import {
 	BranchesOutlined,
 	HddOutlined,
@@ -15,8 +14,11 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './sidebar.module.scss';
 
-const SideBar = ({ collapsed, toggleCollapsed }) => {
+const SideBar = ({ collapsed, toggleCollapsed, setCollapsed }) => {
+	const [openKeys, setOpenKeys] = useState([]);
+
 	const navigate = useNavigate();
+
 	function getItem(label, key, icon, children, type) {
 		return {
 			key,
@@ -66,17 +68,25 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 		]),
 	];
 
-	const onClick = ({key}) => {
-		setTimeout(()=>{
+
+	const rootSubmenuKeys = ['/','/sales-performance', '/email-engagement', '/rfq-opportunities', '/my-sources', '/my-quotes' ];
+
+	const onClick = ({ key }) => {
+		setTimeout(() => {
 			navigate(key);
-		},0)
+		}, 0);
 	};
 
-	const onOpenChange = (key) => {
-		navigate(key[key.length - 1])
-	};
-
-
+  const onOpenChange = (keys) => {
+		// navigate(keys.find((key) => openKeys.indexOf(key) === -1));
+    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      setOpenKeys(keys);
+    } else {
+      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+    }
+		setCollapsed(false)
+  };
 
 	return (
 		<div className={styles['sidebar-wrapper']}>
@@ -88,6 +98,7 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 					collapsed === true ? styles['sidebar-collapsed'] : styles['sidebar']
 				}`}
 				mode="inline"
+				openKeys={openKeys}
 				inlineCollapsed={collapsed}
 				items={items}
 				triggerSubMenuAction="click"
