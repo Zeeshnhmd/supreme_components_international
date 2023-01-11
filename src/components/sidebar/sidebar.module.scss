@@ -1,6 +1,9 @@
 @import '../../styles/variables';
 
 .sidebar-wrapper {
+	overflow: auto;
+	height: 100vh;
+
 	.collapse-btn {
 		cursor: pointer;
 		position: fixed;

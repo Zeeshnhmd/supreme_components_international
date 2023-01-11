@@ -5,7 +5,7 @@ import SideBar from '../sidebar';
 import styles from './layout.module.scss';
 
 const Layout = ({ children, userTypes, userType, setUserType }) => {
-	const [collapsed, setCollapsed] = useState(false);
+	const [collapsed, setCollapsed] = useState(true);
 	const toggleCollapsed = () => {
 		setCollapsed(!collapsed);
 	};

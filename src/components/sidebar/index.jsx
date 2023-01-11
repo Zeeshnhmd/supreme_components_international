@@ -26,7 +26,9 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 	}
 
 	const items = [
-		getItem('Home', '/home', <HomeOutlined />, [getItem('My Journey', '/')]),
+		getItem('Home', '/', <HomeOutlined />, [
+			getItem('My Journey', '/my-journey'),
+		]),
 		getItem(
 			'My Sales Performance',
 			'/sales-performance',
@@ -63,7 +65,12 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 	];
 
 	const onClick = ({ key }) => {
+		console.log(key);
 		navigate(key);
+	};
+
+	const onOpenChange = (key) => {
+		navigate(key[key.length - 1]);
 	};
 
 	return (
@@ -72,6 +79,7 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 				{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
 			</div>
 			<Menu
+				onOpenChange={onOpenChange}
 				onClick={onClick}
 				className={` ${styles['side']} ${
 					collapsed === true ? styles['sidebar-collapsed'] : styles['sidebar']
@@ -80,6 +88,7 @@ const SideBar = ({ collapsed, toggleCollapsed }) => {
 				mode="inline"
 				inlineCollapsed={collapsed}
 				items={items}
+				triggerSubMenuAction="click"
 			/>
 		</div>
 	);

@@ -33,7 +33,7 @@ const Insights = () => {
 			},
 		},
 	});
-	console.log(setOptions);
+	// console.log(setOptions);
 
 	const [barOptions, setBarOptions] = useState({
 		series: [
@@ -103,7 +103,7 @@ const Insights = () => {
 		},
 	});
 
-	console.log(setBarOptions);
+	// console.log(setBarOptions);
 
 	const gridRef = useRef();
 
