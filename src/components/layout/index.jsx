@@ -13,7 +13,6 @@ const Layout = ({ children, userTypes, userType, setUserType }) => {
 
 	useEffect(() => {
 		const mediaQuery = window.matchMedia('(min-width: 600px)');
-
 		if (mediaQuery) {
 			setCollapsed(true);
 		}
