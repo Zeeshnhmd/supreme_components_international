@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react';
 import {
 	BranchesOutlined,
 	HddOutlined,
@@ -68,8 +68,14 @@ const SideBar = ({ collapsed, toggleCollapsed, setCollapsed }) => {
 		]),
 	];
 
-
-	const rootSubmenuKeys = ['/','/sales-performance', '/email-engagement', '/rfq-opportunities', '/my-sources', '/my-quotes' ];
+	const rootSubmenuKeys = [
+		'/',
+		'/sales-performance',
+		'/email-engagement',
+		'/rfq-opportunities',
+		'/my-sources',
+		'/my-quotes',
+	];
 
 	const onClick = ({ key }) => {
 		setTimeout(() => {
@@ -77,16 +83,16 @@ const SideBar = ({ collapsed, toggleCollapsed, setCollapsed }) => {
 		}, 0);
 	};
 
-  const onOpenChange = (keys) => {
+	const onOpenChange = (keys) => {
 		// navigate(keys.find((key) => openKeys.indexOf(key) === -1));
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-    }
-		setCollapsed(false)
-  };
+		const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+		if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+			setOpenKeys(keys);
+		} else {
+			setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+		}
+		setCollapsed(false);
+	};
 
 	return (
 		<div className={styles['sidebar-wrapper']}>
@@ -103,7 +109,7 @@ const SideBar = ({ collapsed, toggleCollapsed, setCollapsed }) => {
 				items={items}
 				triggerSubMenuAction="click"
 				onClick={onClick}
-				onOpenChange={onOpenChange}	
+				onOpenChange={onOpenChange}
 			/>
 		</div>
 	);
