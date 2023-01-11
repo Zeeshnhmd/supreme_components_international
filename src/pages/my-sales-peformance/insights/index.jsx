@@ -11,6 +11,8 @@ import styles from './insigts.module.scss';
 const Insights = () => {
 	const antIcon = <LoadingOutlined style={{ fontSize: 50 }} spin />;
 
+
+// eslint-disable-next-line
 	const [options, setOptions] = useState({
 		series: [44, 55, 13, 43],
 		options: {
@@ -35,6 +37,7 @@ const Insights = () => {
 	});
 	// console.log(setOptions);
 
+	// eslint-disable-next-line
 	const [barOptions, setBarOptions] = useState({
 		series: [
 			{
