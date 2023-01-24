@@ -15,7 +15,7 @@
 
 				.title {
 					font-size: 20px;
-					margin-bottom: 20px;
+					margin-bottom: 40px;
 				}
 
 				.card-wrapper {
@@ -27,12 +27,14 @@
 						padding: 20px 20px 20px;
 						border-radius: 15px;
 						width: 200px;
-						min-height: 150px;
+						min-height: 100px;
 						height: 100%;
 						box-shadow: 0 1px 10px rgb(0 0 0 / 10%);
+						position: relative;
 						display: flex;
 						flex-direction: column;
 						justify-content: space-between;
+						gap: 10px;
 
 						.icons {
 							background-color: #fe4c24;
@@ -44,12 +46,15 @@
 							place-items: center;
 							color: #ffffff;
 							font-weight: 600;
+							position: absolute;
+							top: -20px;
 						}
 
 						.title {
 							margin-bottom: 0;
 							font-size: 12px;
 							line-height: 20px;
+							margin-top: 10px;
 						}
 
 						.link {
