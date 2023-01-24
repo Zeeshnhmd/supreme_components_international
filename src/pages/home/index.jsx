@@ -1,4 +1,4 @@
-import { LineChartOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined, LineChartOutlined } from '@ant-design/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -184,7 +184,8 @@ const Home = () => {
 										{/* <div className={styles['icons']}>{el.icon}</div> */}
 										<p className={styles['title']}>{el.title}</p>
 										<Link className={styles['link']} to={el.to}>
-											View Details
+											View Details{' '}
+											<ArrowRightOutlined className={styles['arrow-icon']} />
 										</Link>
 									</div>
 								</div>

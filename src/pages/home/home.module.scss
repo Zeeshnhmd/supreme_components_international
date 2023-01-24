@@ -110,6 +110,14 @@
 							position: absolute;
 							bottom: 30px;
 							cursor: pointer;
+							display: flex;
+							align-items: center;
+							gap: 15px;
+
+							.arrow-icon {
+								font-size: 12px;
+								font-weight: 600;
+							}
 						}
 					}
 
