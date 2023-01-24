@@ -29,29 +29,100 @@
 			.children-card-wrapper {
 				display: flex;
 				gap: 20px;
+				position: relative;
 
-				.card {
-					background-color: #faf4f0;
-					padding: 30px 20px 20px;
-					border-radius: 15px;
-					width: 200px;
-					min-height: 150px;
-					height: 100%;
-					box-shadow: 0 1px 10px rgb(0 0 0 / 10%);
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-
-					.title {
-						margin-bottom: 0;
-						font-size: 14px;
-						line-height: 20px;
+				.card-wrapper {
+					.icons {
+						position: absolute;
+						left: 15px;
+						top: -20px;
+						background-color: #fe4c24;
+						border-radius: 15px;
+						padding: 10px;
+						width: 40px;
+						height: 40px;
+						display: grid;
+						place-items: center;
+						color: #ffffff;
+						font-weight: 600;
+						z-index: 99;
 					}
 
-					.link {
-						all: unset;
-						font-size: 14px;
-						font-weight: 600;
+					.card {
+						background-color: #faf4f0;
+						padding: 30px 20px 20px;
+						border-radius: 15px;
+						width: 200px;
+						min-height: 150px;
+						height: 100%;
+						box-shadow: 0 1px 10px rgb(0 0 0 / 10%);
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						display: block;
+						position: relative;
+						overflow: hidden;
+						z-index: 0;
+
+						&:before {
+							content: '';
+							position: absolute;
+							z-index: -1;
+							bottom: -10px;
+							left: -10px;
+							background: #fe4c24;
+							height: 32px;
+							width: 32px;
+							border-radius: 32px;
+							transform: scale(1);
+							transform-origin: 50% 50%;
+							transition: transform 0.25s ease-out;
+						}
+
+						&:hover:before {
+							transform: scale(21);
+						}
+
+						.icons {
+							position: absolute;
+							top: -20px;
+							background-color: #fe4c24;
+							border-radius: 15px;
+							padding: 10px;
+							width: 40px;
+							height: 40px;
+							display: grid;
+							place-items: center;
+							color: #ffffff;
+							font-weight: 600;
+						}
+
+						.title {
+							margin-bottom: 0;
+							font-size: 14px;
+							line-height: 20px;
+						}
+
+						.link {
+							all: unset;
+							font-size: 14px;
+							font-weight: 600;
+							position: absolute;
+							bottom: 30px;
+							cursor: pointer;
+						}
+					}
+
+					.card:hover {
+						.title {
+							transition: all 0.3s ease-out;
+							color: #ffffff;
+						}
+
+						.link {
+							transition: all 0.3s ease-out;
+							color: #ffffff;
+						}
 					}
 				}
 			}

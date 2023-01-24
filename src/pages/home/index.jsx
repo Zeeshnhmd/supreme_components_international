@@ -1,3 +1,4 @@
+import { LineChartOutlined } from '@ant-design/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ const Home = () => {
 			childrenCard: [
 				{
 					key: 1,
+					icon: <LineChartOutlined />,
 					title: 'Get my team’s insights into our performance',
 					to: '/sales-performance/insights',
 				},
@@ -39,16 +41,19 @@ const Home = () => {
 			childrenCard: [
 				{
 					key: 1,
+					icon: <LineChartOutlined />,
 					title: 'View my YOY trends',
 					to: '/sales-performance/insights',
 				},
 				{
 					key: 2,
+					icon: <LineChartOutlined />,
 					title: 'View my account-level record of transactions',
 					to: '/sales-performance/insights',
 				},
 				{
 					key: 3,
+					icon: <LineChartOutlined />,
 					title: 'View my team’s  MPN-level record of transactions',
 					to: '/sales-performance/insights',
 				},
@@ -69,11 +74,13 @@ const Home = () => {
 			childrenCard: [
 				{
 					key: 1,
+					icon: <LineChartOutlined />,
 					title: 'View my engagement insights',
 					to: '/sales-performance/insights',
 				},
 				{
 					key: 2,
+					icon: <LineChartOutlined />,
 					title: 'View my customer email activity',
 					to: '/sales-performance/insights',
 				},
@@ -94,11 +101,13 @@ const Home = () => {
 			childrenCard: [
 				{
 					key: 1,
+					icon: <LineChartOutlined />,
 					title: 'View my RFQ stats by account',
 					to: '/sales-performance/insights',
 				},
 				{
 					key: 2,
+					icon: <LineChartOutlined />,
 					title: 'View my RFQs by account',
 					to: '/sales-performance/insights',
 				},
@@ -118,11 +127,13 @@ const Home = () => {
 			childrenCard: [
 				{
 					key: 1,
+					icon: <LineChartOutlined />,
 					title: 'View my MPN cost book',
 					to: '/sales-performance/insights',
 				},
 				{
 					key: 2,
+					icon: <LineChartOutlined />,
 					title: 'View the Sourcing Queue',
 					to: '/sales-performance/insights',
 				},
@@ -142,11 +153,13 @@ const Home = () => {
 			childrenCard: [
 				{
 					key: 1,
+					icon: <LineChartOutlined />,
 					title: 'View my Quote Summaries',
 					to: '/sales-performance/insights',
 				},
 				{
 					key: 2,
+					icon: <LineChartOutlined />,
 					title: 'View my Quote Book',
 					to: '/sales-performance/insights',
 				},
@@ -165,11 +178,15 @@ const Home = () => {
 						</div>
 						<div className={styles['children-card-wrapper']}>
 							{el.childrenCard.map((el) => (
-								<div key={el.key} className={styles['card']}>
-									<p className={styles['title']}>{el.title}</p>
-									<Link className={styles['link']} to={el.to}>
-										View Details
-									</Link>
+								<div key={el.key} className={styles['card-wrapper']}>
+									{/* <div className={styles['icons']}>{el.icon}</div> */}
+									<div className={styles['card']}>
+										{/* <div className={styles['icons']}>{el.icon}</div> */}
+										<p className={styles['title']}>{el.title}</p>
+										<Link className={styles['link']} to={el.to}>
+											View Details
+										</Link>
+									</div>
 								</div>
 							))}
 						</div>
