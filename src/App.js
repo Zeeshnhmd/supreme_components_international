@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Layout from './components/layout';
-import Journey from './pages/home/journey';
+import Home from './pages/home';
+// import Journey from './pages/home/journey';
 import Insights from './pages/my-sales-peformance/insights';
 
 import './styles/index.scss';
@@ -23,6 +24,9 @@ function App() {
 			<Routes>
 				{/* <Route path="/" element={<Journey userType={userType} />} /> */}
 				{/* <Route path="/my-journey" element={<Journey userType={userType} />} /> */}
+
+				<Route path="/" element={<Home />} />
+				<Route path="/my-journey" element={<Home />} />
 
 				<Route
 					path="/sales-performance"
