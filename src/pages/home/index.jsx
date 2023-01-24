@@ -202,7 +202,11 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRightOutlined, LineChartOutlined } from '@ant-design/icons';
+import {
+	ArrowRightOutlined,
+	LineChartOutlined,
+	TeamOutlined,
+} from '@ant-design/icons';
 
 import styles from './home1.module.scss';
 
@@ -370,6 +374,9 @@ const Home = () => {
 	return (
 		<div className={styles['home-wrapper']}>
 			<div className={styles['main-cards']}>
+				<div className={styles['customer']}>
+					<TeamOutlined className={styles['customer-logo']} />
+				</div>
 				{mySalesPerformance.map((el) => (
 					<div key={el.key} className={styles['card-parent']}>
 						<div className={styles['card-inner-wrapper']}>
@@ -380,7 +387,7 @@ const Home = () => {
 										<div className={styles['icons']}>{el.icon}</div>
 										<p className={styles['title']}>{el.title}</p>
 										<Link className={styles['link']} to={el.to}>
-											View Details{' '}
+											View Details
 											<ArrowRightOutlined className={styles['arrow-icon']} />
 										</Link>
 									</div>

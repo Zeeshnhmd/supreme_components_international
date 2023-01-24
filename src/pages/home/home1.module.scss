@@ -3,12 +3,37 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 20px;
+		position: relative;
+
+		.customer {
+			position: absolute;
+			top: 67%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 50px;
+			background-color: #fe4c24;
+			height: 100px;
+			width: 100px;
+			display: grid;
+			place-items: center;
+			border-radius: 50px;
+
+			.customer-logo {
+				color: #ffffff;
+			}
+		}
 
 		.card-parent {
 			width: 100%;
 			background-color: #dabda9;
 			padding: 20px;
 			border-radius: 15px;
+
+			&:nth-child(5),
+			&:nth-child(7) {
+				display: flex;
+				justify-content: end;
+			}
 
 			.card-inner-wrapper {
 				display: grid;
