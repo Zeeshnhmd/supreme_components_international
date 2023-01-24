@@ -91,7 +91,7 @@ const SideBar = ({ collapsed, toggleCollapsed, setCollapsed }) => {
 		} else {
 			setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
 		}
-		setCollapsed(false);
+		// setCollapsed(false);
 	};
 
 	return (
